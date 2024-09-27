@@ -6,8 +6,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { PlayerComponent } from './components/player/player.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/player', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent},
+    { path: '', component: HomeComponent},
     { path: 'player', component: PlayerComponent},
     { path: 'quiz', component: QuizComponent},
     { path: 'leaderboard', component: LeaderboardComponent},
