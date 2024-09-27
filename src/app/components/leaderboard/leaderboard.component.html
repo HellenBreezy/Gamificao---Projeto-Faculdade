@@ -1,0 +1,8 @@
+<!-- leaderboard.component.html -->
+<h2>Placar de Líderes</h2>
+<ul>
+  <li *ngIf="scores.length === 0">Nenhuma pontuação disponível.</li>
+  <li *ngFor="let score of sortedScores">
+    {{ score.playerName }} - {{ score.score }} pontos
+  </li>
+</ul>

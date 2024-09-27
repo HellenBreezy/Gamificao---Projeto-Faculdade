@@ -1,0 +1,46 @@
+.container{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+    //background-color: black;
+    
+    .narrativa {
+      max-width: 950px;
+      padding-top: 40px;
+      //border-radius: 10px;
+      //box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+      h1 {
+        //font-family: "Gotham";
+        color: #8c3ed5;
+        font-size: 29px;
+        //color: #2c3e50;
+        margin-bottom: 0;
+  
+        
+      }
+      img{
+        width: 400px;
+        height: 380px;
+      }
+    
+      p {
+        //color: #ffffff;
+        color: #34495e;
+        font-size: 20px;
+  
+        span {
+          //background-color: #8c3ed5; /* Cor de fundo para destacar */
+          font-weight: bold;       /* Deixa o texto em negrito */
+      }
+      }
+  
+      button{
+        max-width: 400px;
+        width: 100%;
+        background: #C850C0;
+        height: 50px;
+      }
+    }
+  }
+  

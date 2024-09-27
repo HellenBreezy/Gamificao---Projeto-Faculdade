@@ -1,0 +1,36 @@
+<div class="container d-flex justify-content-center align-items-center flex-column">
+  <div class="header d-flex justify-content-between align-items-center justify-content-center">
+    <div class="d-flex justify-content-center">
+      <h4>Jogador: 
+        <p>{{ playerName }}</p>
+      </h4>
+      <h4>Pontuação: 
+        <p>{{ score }}</p>
+      </h4>
+    </div>
+  </div>
+    <div class="content-quiz d-flex justify-content-center align-items-center ml-25 mr-25 ">
+        <div class="quiz d-flex justify-content-center align-items-center flex-column" *ngIf="currentQuestionIndex < questions.length; else endQuiz">
+            <h2>{{ questions[currentQuestionIndex].question }}</h2>
+            <ul class="mt-50 d-flex justify-content-center flex-column align-items-start">
+              <li class="d-flex align-items-center justify-content-start" *ngFor="let option of questions[currentQuestionIndex].options">
+                <label class="bold-option">
+                  <input type="radio" name="answer" [(ngModel)]="selectedAnswer" [value]="option">
+                  {{ option }}
+                </label>
+              </li>
+            </ul>
+            <button  class="btn btn-secondary mt-10" (click)="checkAnswer()">Verificar Resposta</button>
+        </div>
+          
+        <ng-template #endQuiz>
+          <div class="tela-final d-flex flex-column">
+            <h2>Quiz Finalizado!</h2>
+            <p>Sua pontuação: {{ score }} de {{ questions.length }}</p>
+            <button class="btn" routerLink="/leaderboard">Ver Placar</button>
+          </div>
+            
+        </ng-template>
+    </div>
+</div>
+  
