@@ -38,4 +38,8 @@ export class QuizComponent implements OnInit{
     this.selectedAnswer = '';
     this.currentQuestionIndex++;
   }
+
+  selectAnswer(option: string): void {
+    this.selectedAnswer = option;
+  }
 }
