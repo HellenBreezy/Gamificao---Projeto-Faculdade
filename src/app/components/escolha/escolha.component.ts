@@ -17,6 +17,6 @@ export class EscolhaComponent {
   }
 
   onQuiz(){
-  this.router.navigate(['/player']);
+  this.router.navigate(['/quiz']);
   }
 }

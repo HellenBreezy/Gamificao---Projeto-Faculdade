@@ -18,7 +18,7 @@ export class PlayerComponent {
   onClick(): void {
     if (this.playerName.trim()) {
       localStorage.setItem('playerName', this.playerName);
-      this.router.navigate(['/quiz']);
+      this.router.navigate(['/escolha']);
     } else {
       alert('Por favor, insira seu nome.');
     }
