@@ -15,7 +15,7 @@ export class PlayerComponent {
 
   constructor(private router: Router) {}
 
-  startQuiz(): void {
+  onClick(): void {
     if (this.playerName.trim()) {
       localStorage.setItem('playerName', this.playerName);
       this.router.navigate(['/quiz']);

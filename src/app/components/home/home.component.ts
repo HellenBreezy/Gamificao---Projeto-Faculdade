@@ -14,6 +14,6 @@ export class HomeComponent {
     private router: Router
   ){}
   onClick(){
-    this.router.navigate(['/player']);
+    this.router.navigate(['/escolha']);
   }
 }
