@@ -34,9 +34,25 @@
               <h2>Quiz Finalizado!</h2>
               <p>Sua pontuação: {{ score }} de {{ questions.length }}</p>
               <button class="btn" routerLink="/leaderboard">Ver Placar</button>
+              <button class="btn" routerLink="/quiz">Tentar novamente</button>
+              <button class="btn" routerLink="/">Tela inicial</button>
             </div>
               
           </ng-template>
       </div>
   </div>
+
+  <app-modal
+  background="white"
+  title="Você Sabia?"
+  [isVisible]="isVisible"
+  (closeModalEvent)="closeModal()">
+
+  <div>
+    <h4>Resposta correta: {{ response }}</h4>
+    <p>{{ message }}</p>
+
+    <button class="btn" (click)="closeModal()">Continuar</button>
+  </div>
+</app-modal>
 </div>

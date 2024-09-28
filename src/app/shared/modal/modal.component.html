@@ -1,0 +1,24 @@
+<div *ngIf="isVisible" class="overlay modal fade show d-flex align-items-center justify-content-center" 
+     tabindex="-1" 
+     [ngClass]="{
+       'd-block': isVisible,
+       'fade-in': isVisible,
+       'fade-out': !isVisible
+     }"
+     [attr.id]="id">
+  <div class="m-0 modal-dialog" [ngClass]="size">
+    <div class="modal-content">
+      <div class="modal-header" 
+           [ngClass]="{
+             'modal-header--primary': background === 'primary', 
+             'modal-header--white': background === 'white'
+           }">
+        <div class="modal-header__title">{{ title }}</div>
+        <button class="btn-close" (click)="closeModal()"></button>
+      </div>
+      <div class="modal-body">
+        <ng-content></ng-content>
+      </div>
+    </div>
+  </div>
+</div>
