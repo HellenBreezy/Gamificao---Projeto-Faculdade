@@ -1,0 +1,71 @@
+<div class="container-indicate d-flex justify-content-center align-items-center">
+    <div class="quiz-form">
+        <h2>Criar Pergunta de Quiz</h2>
+      
+        <form (ngSubmit)="onSubmit()" #quizForm="ngForm">
+          <!-- Pergunta -->
+          <div class="form-group">
+            <label for="question">Pergunta:</label>
+            <input
+              type="text"
+              id="question"
+              [(ngModel)]="quizData.question"
+              name="question"
+              required
+            />
+          </div>
+      
+          <!-- Opções de Resposta -->
+          <div class="form-group">
+            <label>Opção 1:</label>
+            <input
+              type="text"
+              id="optionOne"
+              [(ngModel)]="quizData.options[0]"
+              name="optionOne"
+              required
+            />
+            <label>Opção 2:</label>
+            <input
+              type="text"
+              id="optionTwo"
+              [(ngModel)]="quizData.options[1]"
+              name="optionTwo"
+              required
+            />
+            <label>Opção 3:</label>
+            <input
+              type="text"
+              id="optionThree"
+              [(ngModel)]="quizData.options[2]"
+              name="optionThree"
+              required
+            />
+            <label>Opção 4:</label>
+            <input 
+              type="text"
+              id="optionFour"
+              [(ngModel)]="quizData.options[3]"
+              name="optionFour"
+              required
+            />
+          </div>
+      
+          <!-- Resposta Correta -->
+          <div class="form-group">
+            <label for="correctAnswer">Resposta Correta:</label>
+            <select id="correctAnswer" [(ngModel)]="quizData.correctAnswer" name="correctAnswer" required>
+              <option *ngFor="let option of quizData.options" [value]="option">{{ option }}</option>
+            </select>
+          </div>
+      
+          <!-- Mensagem Explicativa -->
+          <div class="form-group">
+            <label for="message">Mensagem Explicativa:</label>
+            <textarea id="message" [(ngModel)]="quizData.message" name="message" required></textarea>
+          </div>
+      
+          <button class="btn btn-secondary" type="submit">Adicionar Pergunta</button>
+        </form>
+      </div>
+</div>

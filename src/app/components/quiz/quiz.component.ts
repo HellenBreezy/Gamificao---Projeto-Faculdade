@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router'; // Import RouterModule para o ro
 import { CommonModule } from '@angular/common'; // Importar CommonModule para uso geral
 import { QuizService } from '../../service/quiz/quiz.service';
 import { Question } from '../../models/question.model';
+import { ModalComponent } from '../../shared/modal/modal.component';
 
 @Component({
   selector: 'app-quiz',
   standalone: true,
-  imports: [FormsModule, RouterModule, CommonModule],
+  imports: [FormsModule, RouterModule, CommonModule, ModalComponent],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.scss'
 })
@@ -18,21 +19,31 @@ export class QuizComponent implements OnInit{
   score = 0;
   selectedAnswer = '';
   playerName: string = '';
+  isVisible: boolean = false;
+  response: string = '';
+  message: string = '';
 
   constructor(private quizService: QuizService) {}
 
   ngOnInit(): void {
-    this.questions = this.quizService.getQuestions();
+    const storedQuestions = localStorage.getItem('quizQuestions');
+    if (storedQuestions) {
+      this.questions = JSON.parse(storedQuestions);
+    }
     this.playerName = localStorage.getItem('playerName') || 'Desconhecido';
-  }
+  }  
 
   checkAnswer(): void {
     const currentQuestion = this.questions[this.currentQuestionIndex];
     if (this.selectedAnswer === currentQuestion.correctAnswer) {
       this.score++;
-      alert('Resposta correta!');
+      this.openModal();
+      this.response = currentQuestion.correctAnswer;
+      this.message = currentQuestion.message;
     } else {
-      alert('Resposta incorreta. Tente novamente.');
+      this.openModal();
+      this.response = currentQuestion.correctAnswer;
+      this.message = currentQuestion.message;
     }
 
     this.selectedAnswer = '';
@@ -41,5 +52,13 @@ export class QuizComponent implements OnInit{
 
   selectAnswer(option: string): void {
     this.selectedAnswer = option;
+  }
+
+  openModal(){
+    this.isVisible = true;
+  }
+
+  closeModal(){
+    this.isVisible = false;
   }
 }
