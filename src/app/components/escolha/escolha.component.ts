@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { QuizService } from '../../service/quiz/quiz.service';
+import { Question } from '../../models/question.model';
 
 @Component({
   selector: 'app-escolha',
@@ -9,14 +11,26 @@ import { Router } from '@angular/router';
   styleUrl: './escolha.component.scss'
 })
 export class EscolhaComponent {
+  quizQuestions: Question[] = []; // Tipagem correta para o array
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private quizService: QuizService) {}
 
-  onCreate(){
+  onCreate() {
     this.router.navigate(['/indicate']);
   }
 
-  onQuiz(){
-  this.router.navigate(['/quiz']);
+  useDefaultQuestions() {
+      this.quizQuestions = this.quizService.getQuestions().map(q => ({
+      question: q.question,
+      options: q.options,
+      correctAnswer: q.correctAnswer,
+      message: q.message
+    }));
+
+    // Salva as perguntas padrão no localStorage
+    localStorage.setItem('quizQuestions', JSON.stringify(this.quizQuestions));
+    
+    // Redireciona para a página do quiz
+    this.router.navigate(['/quiz']);
   }
 }

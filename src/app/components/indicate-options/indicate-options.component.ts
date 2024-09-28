@@ -52,4 +52,19 @@ export class IndicateOptionsComponent {
         this.router.navigate(['/quiz']); // Redireciona para a página do quiz
       }
     }
+
+    useDefaultQuestions() {
+      this.quizQuestions = this.quizService.getQuestions().map(q => ({
+        question: q.question,
+        options: q.options,
+        correctAnswer: q.correctAnswer,
+        message: q.message
+      }));
+      
+      // Salva as perguntas padrão no localStorage
+      localStorage.setItem('quizQuestions', JSON.stringify(this.quizQuestions));
+      
+      // Redireciona para a página do quiz
+      this.router.navigate(['/quiz']);
+    }
 }
