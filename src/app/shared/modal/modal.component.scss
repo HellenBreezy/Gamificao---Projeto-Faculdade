@@ -2,6 +2,10 @@
     display: block;
     opacity: 1;
     transition: opacity 0.3s ease;
+
+    div{
+      width: 100%;
+    }
   }
   
   .modal.show {

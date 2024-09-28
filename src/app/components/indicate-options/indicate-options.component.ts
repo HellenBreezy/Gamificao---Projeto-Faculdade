@@ -46,10 +46,25 @@ export class IndicateOptionsComponent {
       };
   
       // Verifica se o usuário já inseriu 4 perguntas
-      if (this.quizQuestions.length >= 4) {
+      if (this.quizQuestions.length >= 1) {
         // Salva as perguntas e redireciona para o quiz
         localStorage.setItem('quizQuestions', JSON.stringify(this.quizQuestions));
         this.router.navigate(['/quiz']); // Redireciona para a página do quiz
       }
+    }
+
+    useDefaultQuestions() {
+      this.quizQuestions = this.quizService.getQuestions().map(q => ({
+        question: q.question,
+        options: q.options,
+        correctAnswer: q.correctAnswer,
+        message: q.message
+      }));
+      
+      // Salva as perguntas padrão no localStorage
+      localStorage.setItem('quizQuestions', JSON.stringify(this.quizQuestions));
+      
+      // Redireciona para a página do quiz
+      this.router.navigate(['/quiz']);
     }
 }
