@@ -11,15 +11,22 @@ import { Score } from '../../models/leaderboard.model';
   styleUrl: './leaderboard.component.scss'
 })
 export class LeaderboardComponent implements OnInit{
-  scores: Score[] = [];
-
-  get sortedScores(): Score[] {
-    return this.scores.sort((a, b) => b.score - a.score);
-  }
+  scores: Score[] = [];  // Lista de pontuações
+  sortedScores: Score[] = [];  // Lista de pontuações ordenadas
+  currentPlayerScore: Score | undefined;  // Pontuação do jogador atual
 
   constructor(private leaderboardService: LeaderboardService) {}
 
   ngOnInit(): void {
+    // Pega as pontuações do serviço
     this.scores = this.leaderboardService.getScores();
+    // Ordena as pontuações de forma decrescente
+    this.sortedScores = [...this.scores].sort((a, b) => b.score - a.score);
+
+    // Busca a pontuação do jogador atual
+    const playerName = localStorage.getItem('playerName');
+    if (playerName) {
+      this.currentPlayerScore = this.scores.find(score => score.playerName === playerName);
+    }
   }
 }

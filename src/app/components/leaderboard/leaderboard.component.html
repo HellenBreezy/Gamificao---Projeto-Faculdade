@@ -1,8 +1,18 @@
-<!-- leaderboard.component.html -->
 <h2>Placar de Líderes</h2>
-<ul>
-  <li *ngIf="scores.length === 0">Nenhuma pontuação disponível.</li>
+
+<!-- Mostrar a pontuação do jogador atual -->
+<div *ngIf="currentPlayerScore">
+  <h3>Você: {{ currentPlayerScore.playerName }} - {{ currentPlayerScore.score }} pontos</h3>
+</div>
+
+<!-- Lista de líderes -->
+<ul *ngIf="scores.length > 0; else noScores">
   <li *ngFor="let score of sortedScores">
     {{ score.playerName }} - {{ score.score }} pontos
   </li>
 </ul>
+
+<!-- Exibe a mensagem se não houver pontuação -->
+<ng-template #noScores>
+  <li>Nenhuma pontuação disponível.</li>
+</ng-template>
