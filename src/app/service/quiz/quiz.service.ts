@@ -49,7 +49,7 @@ export class QuizService {
       message: ''
     },
     {
-      question: 'Quantos átomos de hidrogênio estão presentes em uma molécula de água (H₂O)?',
+      question: 'Quantos átomos de hidrogênio estão presentes em uma molécula de água (H2O)?',
       options: ['1', '2', '3', '4'],
       correctAnswer: '2',
       message: ''
@@ -74,8 +74,19 @@ export class QuizService {
     }
   ];
 
+  private answers: string[] = [];
+
   getQuestions(): Question[] {
     return this.questions;
+  }
+
+  saveAnswer(index: number, answer: string): void {
+    this.answers[index] = answer;
+  }
+
+  // Retorna as respostas
+  getAnswers(): string[] {
+    return this.answers;
   }
 
   addQuestion(newQuestion: Question): void {

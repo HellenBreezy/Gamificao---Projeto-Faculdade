@@ -1,6 +1,6 @@
-<div class="container-quiz">
+<div class="container container-quiz m-0">
   <div class="header d-flex align-items-center justify-content-center">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between ml-25 mr-25">
       <div class="player d-flex">
         <h4 class="d-flex justify-content-start">Jogador:</h4>
         <h4 class="d-flex justify-content-start">{{ playerName }}</h4>
@@ -11,11 +11,11 @@
       </div>
     </div>
   </div>
-  <div class="container d-flex justify-content-center align-items-center flex-column">
-    <div class="content-quiz d-flex justify-content-center align-items-center ml-25 mr-25">
+  <div class=" d-flex justify-content-center align-items-center flex-column ">
+    <div class="content-quiz d-flex justify-content-center align-items-center ">
       <!-- Exibir Pergunta -->
       <div *ngIf="currentQuestionIndex < questions.length; else endQuiz" class="quiz d-flex justify-content-center align-items-center flex-column">
-        <h2>{{ questions[currentQuestionIndex].question }}</h2>
+        <h2 class="mt-2">{{ questions[currentQuestionIndex].question }}</h2>
         <ul class="mt-50 d-flex justify-content-center flex-column align-items-start">
           <li *ngFor="let option of questions[currentQuestionIndex].options"
               [class.selected]="selectedAnswer === option"
@@ -35,9 +35,10 @@
         <div class="tela-final d-flex flex-column">
           <h2>Quiz Finalizado!</h2>
           <p>Sua pontuação: {{ score }} de {{ questions.length }}</p>
-          <button class="btn" routerLink="/leaderboard">Ver Placar</button>
-          <button class="btn" routerLink="/quiz">Tentar novamente</button>
+          <button *ngIf="false" class="btn" routerLink="/leaderboard">Ver Placar</button>
+          <button class="btn" routerLink="/player">Tentar novamente</button>
           <button class="btn" routerLink="/">Tela inicial</button>
+          <button class="btn" (click)="generatePDF()">Baixar Resultado em PDF</button>
         </div>
       </ng-template>
     </div>

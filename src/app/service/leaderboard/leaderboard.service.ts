@@ -5,16 +5,24 @@ import { Score } from '../../models/leaderboard.model';
   providedIn: 'root'
 })
 export class LeaderboardService {
-  private scores: Score[] = [];
+  private localStorageKey = 'leaderboardScores'; // Chave para armazenar as pontuações no localStorage
+
+  constructor() {}
 
   // Adiciona uma nova pontuação à lista
-  addScore(playerName: string, score: number) {
-    this.scores.push({ playerName, score });
+  addScore(playerName: string, score: number): void {
+    // Obtém as pontuações atuais do localStorage
+    const scores = this.getScores();
+    // Adiciona a nova pontuação à lista
+    scores.push({ playerName, score });
+    // Salva as pontuações de volta no localStorage
+    localStorage.setItem(this.localStorageKey, JSON.stringify(scores));
   }
-  
 
-  // Retorna a lista de pontuações
+  // Retorna a lista de pontuações armazenadas no localStorage
   getScores(): Score[] {
-    return this.scores;
+    const storedScores = localStorage.getItem(this.localStorageKey);
+    // Retorna as pontuações se existirem, ou um array vazio caso contrário
+    return storedScores ? JSON.parse(storedScores) : [];
   }
 }
