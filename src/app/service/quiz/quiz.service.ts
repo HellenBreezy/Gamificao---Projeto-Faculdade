@@ -13,64 +13,84 @@ interface Question {
 export class QuizService {
   private questions: Question[] = [
     {
-      question: 'Qual é a menor unidade de um elemento químico que mantém suas propriedades?',
-      options: ['Molécula', 'Átomo', 'Elétron', 'Neutrino'],
-      correctAnswer: 'Átomo',
-      message:''
+      question: 'Qual é a unidade de medida da velocidade?',
+      options: ['Metro (m)', 'Segundo (s)', 'Metro por segundo (m/s)', 'Joule (J)'],
+      correctAnswer: 'Metro por segundo (m/s)',
+      message: 'Velocidade mede a variação da posição no tempo, e sua unidade no SI é m/s.'
     },
     {
-      question: 'Qual dos seguintes é um exemplo de uma mistura aquosa?',
-      options: ['Água e óleo', 'Areia e sal', 'Água com sal dissolvido', 'Ferro e enxofre'],
-      correctAnswer: 'Água com sal dissolvido',
-      message: ''
+      question: 'O que é uma força?',
+      options: [
+        'Uma quantidade que causa aceleração em um objeto.',
+        'A velocidade de um objeto.',
+        'A quantidade de movimento de um objeto.',
+        'A energia cinética de um objeto.'
+      ],
+      correctAnswer: 'Uma quantidade que causa aceleração em um objeto.',
+      message: 'Força é o que faz um objeto acelerar ou mudar seu movimento.'
     },
     {
-      question: 'Qual das alternativas abaixo representa uma mudança física, e não química?',
-      options: ['Queima de papel', 'Fermentação de uva', 'Dissolução de açúcar em água', 'Oxidação de ferro'],
-      correctAnswer: 'Dissolução de açúcar em água',
-      message: ''
+      question: 'O que é a Lei de Newton da Ação e Reação?',
+      options: [
+        'Para toda ação, há uma reação de igual intensidade e direção, mas em sentido oposto.',
+        'A aceleração de um corpo é diretamente proporcional à força que nele age.',
+        'A força de atrito é sempre maior que a força aplicada.',
+        'A força de gravidade atrai todos os corpos igualmente.'
+      ],
+      correctAnswer: 'Para toda ação, há uma reação de igual intensidade e direção, mas em sentido oposto.',
+      message: 'Quando um objeto exerce força sobre outro, este reage com força igual e oposta.'
     },
     {
-      question: 'Qual partícula subatômica possui carga negativa?',
-      options: ['Próton', 'Nêutron', 'Elétron', 'Quark'],
-      correctAnswer: 'Elétron',
-      message: ''
+      question: 'Qual é a fórmula da aceleração média?',
+      options: ['a = v² - v₀²', 'a = (v - v₀) / t', 'a = m / F', 'a = F / m'],
+      correctAnswer: 'a = (v - v₀) / t',
+      message: 'A aceleração média é a variação da velocidade dividida pelo tempo.'
     },
     {
-      question: 'Qual é a unidade de medida da quantidade de matéria no Sistema Internacional (SI)?',
-      options: ['Mol', 'Grama', 'Metro', 'Litro'],
-      correctAnswer: 'Mol',
-      message: ''
+      question: 'O que significa a palavra "energia"?',
+      options: [
+        'A capacidade de um corpo realizar trabalho.',
+        'A quantidade de movimento de um corpo.',
+        'A força que atua sobre um corpo.',
+        'A massa de um corpo.'
+      ],
+      correctAnswer: 'A capacidade de um corpo realizar trabalho.',
+      message: 'Energia é o que permite que algo realize trabalho ou cause mudanças.'
     },
     {
-      question: 'Qual das alternativas abaixo é um exemplo de uma substância pura?',
-      options: ['Ar', 'Água destilada', 'Água do mar', 'Areia'],
-      correctAnswer: 'Água destilada',
-      message: ''
+      question: 'Qual é a fórmula da força gravitacional de atração entre dois corpos?',
+      options: ['F = m * g', 'F = G * (m₁ * m₂) / r²', 'F = m * a', 'F = m / a'],
+      correctAnswer: 'F = G * (m₁ * m₂) / r²',
+      message: 'A gravidade depende da massa dos corpos e da distância entre eles.'
     },
     {
-      question: 'Quantos átomos de hidrogênio estão presentes em uma molécula de água (H2O)?',
-      options: ['1', '2', '3', '4'],
-      correctAnswer: '2',
-      message: ''
+      question: 'Qual é a principal característica de um movimento uniforme?',
+      options: ['A aceleração é constante.', 'A velocidade é constante.', 'A velocidade aumenta constantemente.', 'A força é constante.'],
+      correctAnswer: 'A velocidade é constante.',
+      message: 'No movimento uniforme, a velocidade não muda com o tempo.'
     },
     {
-      question: 'Qual das alternativas abaixo representa uma propriedade química?',
-      options: ['Cor', 'Densidade', 'Ponto de fusão', 'Inflamabilidade'],
-      correctAnswer: 'Densidade',
-      message: ''
+      question: 'A luz branca é composta por:',
+      options: ['Apenas luz vermelha.', 'Apenas luz azul.', 'Uma mistura de luzes de diferentes cores.', 'Nenhuma cor de luz.'],
+      correctAnswer: 'Uma mistura de luzes de diferentes cores.',
+      message: 'A luz branca é a soma de todas as cores do espectro visível.'
     },
     {
-      question: 'Qual é o principal gás responsável pelo efeito estufa?',
-      options: ['Oxigênio', 'Hidrogênio', 'Gás carbônico', 'Hélio'],
-      correctAnswer: 'Gás carbônico',
-      message: ''
+      question: 'Quando um corpo está em queda livre, qual força está agindo sobre ele?',
+      options: ['Força centrípeta.', 'Força de atrito.', 'Força gravitacional.', 'Força de resistência do ar.'],
+      correctAnswer: 'Força gravitacional.',
+      message: 'Na queda livre, apenas a gravidade age sobre o corpo.'
     },
     {
-      question: 'Qual das alternativas é uma propriedade dos metais?',
-      options: ['São isolantes térmicos', 'São maleáveis e condutores de eletricidade', 'São quebradiços e isolantes elétricos', 'Têm baixa densidade'],
-      correctAnswer: 'São maleáveis e condutores de eletricidade',
-      message: ''
+      question: 'O que é o trabalho realizado por uma força?',
+      options: [
+        'A mudança na posição de um corpo em relação ao tempo.',
+        'A quantidade de energia perdida.',
+        'A força aplicada em um corpo multiplicada pela distância que o corpo se move na direção da força.',
+        'A aceleração que um corpo adquire.'
+      ],
+      correctAnswer: 'A força aplicada em um corpo multiplicada pela distância que o corpo se move na direção da força.',
+      message: 'Trabalho ocorre quando uma força desloca um objeto em sua direção.'
     }
   ];
 
