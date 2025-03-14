@@ -13,104 +13,104 @@ interface Question {
 })
 export class QuizService {
   private questions: Question[] = [
-    // //nivel 1 - facil
-    // {
-    //   question: 'Qual é a unidade de medida da força no Sistema Internacional de Unidades?',
-    //   options: ['Newton (N)', 'Joule (J)', 'Watt (W)', 'Metro (m)'],
-    //   correctAnswer: 'Newton (N)',
-    //   message: 'A unidade de medida da força no SI é o Newton (N).'
-    // },
-    // {
-    //   question: 'Qual é o estado físico da matéria que tem volume e forma definidos?',
-    //   options: ['Sólido', 'Líquido', 'Gasoso', 'Plasma'],
-    //   correctAnswer: 'Sólido',
-    //   message: 'O estado sólido possui forma e volume definidos.'
-    // },
-    // {
-    //   question: 'Qual é a energia que um objeto possui devido à sua posição ou altura?',
-    //   options: ['Energia cinética', 'Energia potencial', 'Energia térmica', 'Energia elétrica'],
-    //   correctAnswer: 'Energia potencial',
-    //   message: 'A energia potencial é armazenada devido à posição do objeto.'
-    // },
-    // {
-    //   question: 'Qual é o dispositivo que converte energia elétrica em energia mecânica?',
-    //   options: ['Gerador', 'Motor', 'Transformador', 'Resistência'],
-    //   correctAnswer: 'Motor',
-    //   message: 'Motores elétricos convertem energia elétrica em movimento mecânico.'
-    // },
-    // {
-    //   question: 'Qual é a velocidade de um objeto que se move em linha reta e com velocidade constante?',
-    //   options: ['Aceleração', 'Velocidade escalar', 'Velocidade vetorial', 'Deslocamento'],
-    //   correctAnswer: 'Velocidade escalar',
-    //   message: 'A velocidade escalar mede a rapidez com que um objeto se move.'
-    // },
-    // {
-    //   question: 'Qual é a força que atua entre dois objetos com cargas elétricas opostas?',
-    //   options: ['Força gravitacional', 'Força eletromagnética', 'Força de atrito', 'Força normal'],
-    //   correctAnswer: 'Força eletromagnética',
-    //   message: 'A força eletromagnética atrai cargas opostas e repele cargas iguais.'
-    // },
-    // {
-    //   question: 'Qual é o princípio físico que afirma que a energia não pode ser criada nem destruída, apenas convertida de uma forma para outra?',
-    //   options: ['Princípio da conservação da energia', 'Princípio da conservação da quantidade de movimento', 'Princípio da conservação do momento angular', 'Princípio da relatividade'],
-    //   correctAnswer: 'Princípio da conservação da energia',
-    //   message: 'A energia total de um sistema isolado permanece constante.'
-    // },
-    // {
-    //   question: 'Qual é o dispositivo que converte energia mecânica em energia elétrica?',
-    //   options: ['Gerador', 'Motor', 'Transformador', 'Resistência'],
-    //   correctAnswer: 'Gerador',
-    //   message: 'Geradores convertem energia mecânica em elétrica.'
-    // },
-    // //nivel 2 - medio
-    // {
-    //   question: 'O que acontece com a resistência elétrica de um fio quando sua temperatura aumenta?',
-    //   options: ['A resistência diminui', 'A resistência aumenta', 'A resistência permanece a mesma', 'A resistência se torna infinita'],
-    //   correctAnswer: 'A resistência aumenta',
-    //   message: 'Com o aumento da temperatura, os elétrons enfrentam mais dificuldade para se mover, aumentando a resistência.'
-    // },
-    // {
-    //   question: 'Se a velocidade de um carro dobra, qual o impacto na sua energia cinética?',
-    //   options: ['Ela dobra', 'Ela triplica', 'Ela quadruplica', 'Ela permanece a mesma'],
-    //   correctAnswer: 'Ela quadruplica',
-    //   message: 'A energia cinética é proporcional ao quadrado da velocidade (Ec = 1/2 m v²).' 
-    // },
-    // {
-    //   question: 'Um espelho côncavo pode formar uma imagem real e invertida quando?',
-    //   options: ['O objeto está entre o foco e o espelho', 'O objeto está no centro de curvatura', 'O objeto está além do centro de curvatura', 'O objeto está no foco'],
-    //   correctAnswer: 'O objeto está além do centro de curvatura',
-    //   message: 'Quando o objeto está além do centro de curvatura, a imagem formada é real, invertida e menor que o objeto.'
-    // },
-    // {
-    //   question: 'Se uma onda sonora passa de um meio para outro com maior densidade, o que acontece com sua velocidade?',
-    //   options: ['Aumenta', 'Diminui', 'Permanece a mesma', 'Se torna zero'],
-    //   correctAnswer: 'Aumenta',
-    //   message: 'Ondas sonoras se propagam mais rápido em meios mais densos, pois há mais partículas para transmitir a vibração.'
-    // },
-    // {
-    //   question: 'Qual dessas grandezas NÃO é uma grandeza vetorial?',
-    //   options: ['Força', 'Aceleração', 'Temperatura', 'Velocidade'],
-    //   correctAnswer: 'Temperatura',
-    //   message: 'A temperatura não possui direção e sentido, sendo uma grandeza escalar.'
-    // },
-    // {
-    //   question: 'Qual é a principal razão para um objeto flutuar na água?',
-    //   options: ['Peso maior que o empuxo', 'Densidade menor que a da água', 'Área da superfície maior', 'Forma esférica'],
-    //   correctAnswer: 'Densidade menor que a da água',
-    //   message: 'Objetos com densidade menor que a da água deslocam um volume suficiente para gerar um empuxo maior que seu peso, flutuando.'
-    // },
-    // {
-    //   question: 'O que acontece com a pressão dentro de um líquido à medida que a profundidade aumenta?',
-    //   options: ['A pressão diminui', 'A pressão aumenta', 'A pressão permanece constante', 'A pressão se torna negativa'],
-    //   correctAnswer: 'A pressão aumenta',
-    //   message: 'A pressão dentro de um líquido cresce com a profundidade devido ao peso da coluna de líquido acima.'
-    // },
-    // {
-    //   question: 'O que acontece com um gás ideal quando sua temperatura aumenta, mantendo o volume constante?',
-    //   options: ['A pressão aumenta', 'A pressão diminui', 'O número de moléculas aumenta', 'A densidade diminui'],
-    //   correctAnswer: 'A pressão aumenta',
-    //   message: 'Pela lei dos gases ideais (PV = nRT), se o volume for constante e a temperatura aumentar, a pressão também aumenta.'
-    // },
+    //nivel 1 - facil
+    {
+      question: 'Qual é a unidade de medida da força no Sistema Internacional de Unidades?',
+      options: ['Newton (N)', 'Joule (J)', 'Watt (W)', 'Metro (m)'],
+      correctAnswer: 'Newton (N)',
+      message: 'A unidade de medida da força no SI é o Newton (N).'
+    },
+    {
+      question: 'Qual é o estado físico da matéria que tem volume e forma definidos?',
+      options: ['Sólido', 'Líquido', 'Gasoso', 'Plasma'],
+      correctAnswer: 'Sólido',
+      message: 'O estado sólido possui forma e volume definidos.'
+    },
+    {
+      question: 'Qual é a energia que um objeto possui devido à sua posição ou altura?',
+      options: ['Energia cinética', 'Energia potencial', 'Energia térmica', 'Energia elétrica'],
+      correctAnswer: 'Energia potencial',
+      message: 'A energia potencial é armazenada devido à posição do objeto.'
+    },
+    {
+      question: 'Qual é o dispositivo que converte energia elétrica em energia mecânica?',
+      options: ['Gerador', 'Motor', 'Transformador', 'Resistência'],
+      correctAnswer: 'Motor',
+      message: 'Motores elétricos convertem energia elétrica em movimento mecânico.'
+    },
+    {
+      question: 'Qual é a velocidade de um objeto que se move em linha reta e com velocidade constante?',
+      options: ['Aceleração', 'Velocidade escalar', 'Velocidade vetorial', 'Deslocamento'],
+      correctAnswer: 'Velocidade escalar',
+      message: 'A velocidade escalar mede a rapidez com que um objeto se move.'
+    },
+    {
+      question: 'Qual é a força que atua entre dois objetos com cargas elétricas opostas?',
+      options: ['Força gravitacional', 'Força eletromagnética', 'Força de atrito', 'Força normal'],
+      correctAnswer: 'Força eletromagnética',
+      message: 'A força eletromagnética atrai cargas opostas e repele cargas iguais.'
+    },
+    {
+      question: 'Qual é o princípio físico que afirma que a energia não pode ser criada nem destruída, apenas convertida de uma forma para outra?',
+      options: ['Princípio da conservação da energia', 'Princípio da conservação da quantidade de movimento', 'Princípio da conservação do momento angular', 'Princípio da relatividade'],
+      correctAnswer: 'Princípio da conservação da energia',
+      message: 'A energia total de um sistema isolado permanece constante.'
+    },
+    {
+      question: 'Qual é o dispositivo que converte energia mecânica em energia elétrica?',
+      options: ['Gerador', 'Motor', 'Transformador', 'Resistência'],
+      correctAnswer: 'Gerador',
+      message: 'Geradores convertem energia mecânica em elétrica.'
+    },
+    //nivel 2 - medio
+    {
+      question: 'O que acontece com a resistência elétrica de um fio quando sua temperatura aumenta?',
+      options: ['A resistência diminui', 'A resistência aumenta', 'A resistência permanece a mesma', 'A resistência se torna infinita'],
+      correctAnswer: 'A resistência aumenta',
+      message: 'Com o aumento da temperatura, os elétrons enfrentam mais dificuldade para se mover, aumentando a resistência.'
+    },
+    {
+      question: 'Se a velocidade de um carro dobra, qual o impacto na sua energia cinética?',
+      options: ['Ela dobra', 'Ela triplica', 'Ela quadruplica', 'Ela permanece a mesma'],
+      correctAnswer: 'Ela quadruplica',
+      message: 'A energia cinética é proporcional ao quadrado da velocidade (Ec = 1/2 m v²).' 
+    },
+    {
+      question: 'Um espelho côncavo pode formar uma imagem real e invertida quando?',
+      options: ['O objeto está entre o foco e o espelho', 'O objeto está no centro de curvatura', 'O objeto está além do centro de curvatura', 'O objeto está no foco'],
+      correctAnswer: 'O objeto está além do centro de curvatura',
+      message: 'Quando o objeto está além do centro de curvatura, a imagem formada é real, invertida e menor que o objeto.'
+    },
+    {
+      question: 'Se uma onda sonora passa de um meio para outro com maior densidade, o que acontece com sua velocidade?',
+      options: ['Aumenta', 'Diminui', 'Permanece a mesma', 'Se torna zero'],
+      correctAnswer: 'Aumenta',
+      message: 'Ondas sonoras se propagam mais rápido em meios mais densos, pois há mais partículas para transmitir a vibração.'
+    },
+    {
+      question: 'Qual dessas grandezas NÃO é uma grandeza vetorial?',
+      options: ['Força', 'Aceleração', 'Temperatura', 'Velocidade'],
+      correctAnswer: 'Temperatura',
+      message: 'A temperatura não possui direção e sentido, sendo uma grandeza escalar.'
+    },
+    {
+      question: 'Qual é a principal razão para um objeto flutuar na água?',
+      options: ['Peso maior que o empuxo', 'Densidade menor que a da água', 'Área da superfície maior', 'Forma esférica'],
+      correctAnswer: 'Densidade menor que a da água',
+      message: 'Objetos com densidade menor que a da água deslocam um volume suficiente para gerar um empuxo maior que seu peso, flutuando.'
+    },
+    {
+      question: 'O que acontece com a pressão dentro de um líquido à medida que a profundidade aumenta?',
+      options: ['A pressão diminui', 'A pressão aumenta', 'A pressão permanece constante', 'A pressão se torna negativa'],
+      correctAnswer: 'A pressão aumenta',
+      message: 'A pressão dentro de um líquido cresce com a profundidade devido ao peso da coluna de líquido acima.'
+    },
+    {
+      question: 'O que acontece com um gás ideal quando sua temperatura aumenta, mantendo o volume constante?',
+      options: ['A pressão aumenta', 'A pressão diminui', 'O número de moléculas aumenta', 'A densidade diminui'],
+      correctAnswer: 'A pressão aumenta',
+      message: 'Pela lei dos gases ideais (PV = nRT), se o volume for constante e a temperatura aumentar, a pressão também aumenta.'
+    },
     //nivel 3 - dificil
     {
       question: 'Um objeto de massa 5 kg é lançado com uma velocidade inicial de 20 m/s em um ângulo de 30° com relação à horizontal. Qual é a sua energia cinética após 2 s?',
