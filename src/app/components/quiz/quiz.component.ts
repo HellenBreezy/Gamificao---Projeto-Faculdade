@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Import FormsModule para usar ngModel
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Import FormsModule para usar ngModel
 import { RouterModule } from '@angular/router'; // Import RouterModule para o roteamento
 import { CommonModule } from '@angular/common'; // Importar CommonModule para uso geral
 import { QuizService } from '../../service/quiz/quiz.service';
@@ -51,6 +51,10 @@ export class QuizComponent implements OnInit{
     this.currentQuestionIndex++;
   }
 
+  reset(){
+    localStorage.clear();
+  }
+
   selectAnswer(option: string): void {
     this.selectedAnswer = option;
     this.quizService.saveAnswer(this.currentQuestionIndex, option);
@@ -68,81 +72,86 @@ export class QuizComponent implements OnInit{
     const doc = new jsPDF();
     const questions = this.quizService.getQuestions();
     const answers = this.quizService.getAnswers();
-    
+  
+    const levelSelected = localStorage.getItem('level');
+
+    const filteredQuestions = questions.filter(question => question.level === Number(levelSelected));
+  
     let yPosition = 20;
     const pageHeight = doc.internal.pageSize.height;
   
     // Título
     doc.setFontSize(18);
     doc.text('Resultados do Quiz', 10, yPosition);
-    yPosition += 10;  // Adiciona margem inferior para o título
+    yPosition += 10;
   
     // Nome do usuário
     doc.setFontSize(14);
     doc.text(`Nome do Jogador: ${this.playerName}`, 10, yPosition);
-    yPosition += 10;  // Adiciona espaço após o nome do jogador
+    yPosition += 10;
   
-    questions.forEach((question, index) => {
+    filteredQuestions.forEach((question, index) => {
       if (yPosition > pageHeight - 30) {
-        doc.addPage(); // Adiciona nova página se estiver perto do limite
+        doc.addPage();
         yPosition = 20;
       }
   
       doc.setFontSize(14);
-      doc.setTextColor(0, 0, 0); // Cor padrão preta
+      doc.setTextColor(0, 0, 0);
   
-      // Quebra de linha automática para a pergunta
       const maxWidth = 180;
       const questionLines = doc.splitTextToSize(`${index + 1}. ${question.question}`, maxWidth);
-      
-      // Exibe a pergunta com a numeração
+  
       questionLines.forEach((line: string) => {
         doc.text(line, 10, yPosition);
         yPosition += 10;
       });
   
-      yPosition += 10; // Espaço entre a pergunta e as opções
+      yPosition += 10;
   
       question.options.forEach(option => {
         const userSelected = answers[index] === option;
         const isCorrect = option === question.correctAnswer;
   
-        // Se a resposta foi correta, grifa em verde
         if (userSelected && isCorrect) {
-          doc.setFillColor(144, 238, 144);  // Verde claro para resposta correta
-          doc.rect(10, yPosition - 7, 190, 8, 'F');  // Preenchimento verde
-        } 
-        // Se a resposta foi errada, destaca em amarelo
-        else if (userSelected && !isCorrect) {
-          doc.setFillColor(255, 255, 153);  // Amarelo claro para resposta errada
-          doc.rect(10, yPosition - 7, 190, 8, 'F');  // Preenchimento amarelo
+          doc.setFillColor(144, 238, 144);
+          doc.rect(10, yPosition - 7, 190, 8, 'F');
+        } else if (userSelected && !isCorrect) {
+          doc.setFillColor(255, 255, 153);
+          doc.rect(10, yPosition - 7, 190, 8, 'F');
         }
   
-        // Texto da opção
         doc.setFontSize(12);
-        doc.setTextColor(0, 0, 0); // Cor do texto padrão preta
-        doc.text(option, 12, yPosition);  // Escreve a opção
+        doc.setTextColor(0, 0, 0);
+        doc.text(option, 12, yPosition);
   
-        yPosition += 10;  // Ajuste de posição para a próxima linha
+        yPosition += 10;
       });
   
-      yPosition += 5; // Espaço extra entre perguntas
+      yPosition += 5;
     });
   
-    // Pontuação total no final
     if (yPosition > pageHeight - 20) {
       doc.addPage();
       yPosition = 20;
     }
   
     doc.setFontSize(16);
-    doc.setTextColor(0, 0, 128); // Azul escuro para o total de pontuação
-    doc.text(`Pontuação: ${this.score} de ${questions.length}`, 10, yPosition + 10);
+    doc.setTextColor(0, 0, 128);
+    doc.text(`Pontuação: ${this.score} de ${filteredQuestions.length}`, 10, yPosition + 10);
   
-    // Salva o PDF
     doc.save('resultados_quiz.pdf');
   }
   
   
+  getQuestionLevel(question: Question): number {
+    if(question.level === 1){
+      return 1;
+    } else if (question.level === 2){
+      return 2;
+    } else{
+      return 3;
+    }
+  }
 
 }

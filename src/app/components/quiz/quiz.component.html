@@ -42,7 +42,7 @@
           <h2>Quiz Finalizado!</h2>
           <p>Sua pontuação: {{ score }} de {{ questions.length }}</p>
           <button *ngIf="false" class="btn" routerLink="/leaderboard">Ver Placar</button>
-          <button class="btn" routerLink="/player">Tentar novamente</button>
+          <button class="btn" routerLink="/player" (click)="reset()">Tentar novamente</button>
           <button class="btn" routerLink="/">Tela inicial</button>
           <button class="btn" (click)="generatePDF()">Baixar Resultado em PDF</button>
         </div>

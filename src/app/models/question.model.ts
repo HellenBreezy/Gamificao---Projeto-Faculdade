@@ -4,5 +4,6 @@ export interface Question {
     correctAnswer: string;      // Resposta correta
     message: string;
     image?: string;
+    level?: number;
   }
   
