@@ -24,7 +24,8 @@ export class EscolhaComponent {
       question: q.question,
       options: q.options,
       correctAnswer: q.correctAnswer,
-      message: q.message
+      message: q.message,
+      image: q.image
     }));
 
     // Salva as perguntas padrão no localStorage
