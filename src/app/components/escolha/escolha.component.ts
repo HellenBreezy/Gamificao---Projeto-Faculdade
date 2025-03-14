@@ -19,15 +19,18 @@ export class EscolhaComponent {
     this.router.navigate(['/indicate']);
   }
 
-  useDefaultQuestions() {
-      this.quizQuestions = this.quizService.getQuestions().map(q => ({
-      question: q.question,
-      options: q.options,
-      correctAnswer: q.correctAnswer,
-      message: q.message,
-      image: q.image
+  useDefaultQuestions(level: number) {
+
+    // Filtra as perguntas de acordo com o nível selecionado
+    this.quizQuestions = this.quizService.getQuestions().filter(q => q.level === level).map(q => ({
+    question: q.question,
+    options: q.options,
+    correctAnswer: q.correctAnswer,
+    message: q.message,
+    image: q.image
     }));
 
+    localStorage.setItem('level', JSON.stringify(level));
     // Salva as perguntas padrão no localStorage
     localStorage.setItem('quizQuestions', JSON.stringify(this.quizQuestions));
     

@@ -12,7 +12,9 @@ export class HomeComponent {
 
   constructor(
     private router: Router
-  ){}
+  ){
+    localStorage.clear();
+  }
   onClick(){
     this.router.navigate(['/player']);
   }
