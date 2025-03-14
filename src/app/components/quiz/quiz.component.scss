@@ -71,14 +71,26 @@
         height: 600px;
         width: 100%;
 
-        h2{
-            height: auto;
-            width: 100%;
-            background: white;
-            border: 1px solid transparent;
-            border-radius: 10px;
-            padding: 18px 20px 20px 18px;
+        .div-quiz{
+          height: auto;
+          width: 100%;
+          background: white;
+          border: 1px solid transparent;
+          border-radius: 10px;
+          padding: 18px 20px 20px 18px;
         }
+
+        h2{
+          
+        }
+        // h2{
+        //     height: auto;
+        //     width: 100%;
+        //     background: white;
+        //     border: 1px solid transparent;
+        //     border-radius: 10px;
+        //     padding: 18px 20px 20px 18px;
+        // }
 
         ul{
             max-width: 600px;
@@ -136,6 +148,11 @@
     }
 }
 
+.question-image {
+  max-width: 100%; /* Limita a imagem ao tamanho do container */
+  height: auto; /* Mantém a proporção da imagem */
+  margin-top: 20px; /* Espaçamento entre a pergunta e a imagem */
+}
 
 button{
   margin-top: 30px;

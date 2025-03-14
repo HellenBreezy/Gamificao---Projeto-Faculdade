@@ -23,6 +23,13 @@
       }
       input{
         height: 50px;
+        transition: border 0.3s ease-in-out;
+
+        &:focus{
+          border: 2px solid black;
+          outline: none;
+          box-shadow: none;
+        }
       }
   
       .form-control {
